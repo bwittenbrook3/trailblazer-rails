@@ -39,7 +39,7 @@ module Trailblazer
     end
 
     initializer "trailblazer.application_controller" do |app|
-      reloader_class.to_prepare do
+      reloader_class.to_prepare(prepend: true) do
         Trailblazer::Railtie.extend_application_controller!(app)
       end
     end
